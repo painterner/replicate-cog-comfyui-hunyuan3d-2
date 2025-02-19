@@ -27,6 +27,15 @@ build:
     - websocket-client==1.6.3
     - diffusers>=0.31.0
 
+
+    # hunyuan3d-wrapper
+    - huggingface_hub
+    - opencv-python
+    - xatlas
+    - pymeshlab
+    - pygltflib
+    - pybind11
+
     # ComfyUI-AdvancedLivePortrait
     - dill
 
@@ -103,6 +112,11 @@ build:
 
     # ComfyUI-segment-anything-2
     - iopath
+          
+    # comfyui-essential
+    - colour-science
+    - transparent-background
+
   run:
     - curl -o /usr/local/bin/pget -L "https://github.com/replicate/pget/releases/latest/download/pget_$(uname -s)_$(uname -m)" && chmod +x /usr/local/bin/pget
     - pip install onnxruntime-gpu --extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/

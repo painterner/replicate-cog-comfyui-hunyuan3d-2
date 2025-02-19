@@ -143,6 +143,7 @@
     "v2-1_768-nonema-pruned.safetensors",
     "wd-illusion-fp16.safetensors",
     "x4-upscaler-ema.safetensors",
+    "hunyuan3d-dit-v2.safetensors",
     "zavychromaxl_v80.safetensors"
   ],
   "UPSCALE_MODELS": [

@@ -11,7 +11,12 @@ from weights_downloader import WeightsDownloader
 from cog_model_helpers import optimise_images
 from config import config
 import requests
+import subprocess
+import importlib.util
+import sys
 
+mimetypes.add_type("application/octet-stream", ".glb")
+# https://github.com/replicate/cog/issues/1264
 
 os.environ["DOWNLOAD_LATEST_WEIGHTS_MANIFEST"] = "true"
 os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
@@ -29,10 +34,38 @@ with open("examples/api_workflows/instantid_default_api.json", "r") as file:
     EXAMPLE_WORKFLOW_JSON = file.read()
 
 
+def popen_print_output(args, cwd=None, shell=False):
+    process = subprocess.Popen(
+        args,
+        cwd=cwd,
+        shell=shell,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        )
+    stdout, stderr = process.communicate()
+    print(
+        f"exit code: {process.returncode}, {' '.join(args)}\n"
+        f"stdout: {stdout.decode('utf-8')}\n"
+        f"stderr: {stderr.decode('utf-8')}\n"
+        "\n"
+        )
+
+
 class Predictor(BasePredictor):
     def setup(self, weights: str):
         if bool(weights):
             self.handle_user_weights(weights)
+
+        if importlib.util.find_spec('custom_rasterizer') is None:
+            this_path = os.path.dirname(os.path.realpath(__file__))
+            print("Installing custom_rasterizer")
+            popen_print_output(
+                ['pip', 'install',
+                os.path.join(
+                    'ComfyUI/custom_nodes/ComfyUI-Hunyuan3DWrapper/hy3dgen/texgen/custom_rasterizer/dist/custom_rasterizer-0.1.0+torch260.cuda124-cp312-cp312-linux_x86_64.whl'
+                    )]
+            )
+
 
         self.comfyUI = ComfyUI("127.0.0.1:8188")
         self.comfyUI.start_server(OUTPUT_DIR, INPUT_DIR)

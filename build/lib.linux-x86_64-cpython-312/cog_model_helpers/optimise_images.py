@@ -2,10 +2,8 @@ from cog import Input
 from PIL import Image
 
 IMAGE_FILE_EXTENSIONS = [".jpg", ".jpeg", ".png"]
-#FORMAT_CHOICES = ["webp", "jpg", "png"]
-#DEFAULT_FORMAT = "webp"
-FORMAT_CHOICES = ["glb", "webp", "jpg", "png"]
-DEFAULT_FORMAT = "glb"
+FORMAT_CHOICES = ["webp", "jpg", "png"]
+DEFAULT_FORMAT = "webp"
 DEFAULT_QUALITY = 95
 
 

@@ -1,0 +1,4 @@
+Metadata-Version: 2.2
+Name: custom_rasterizer
+Version: 0.1.0+torch260.cuda124
+License-File: LICENSE

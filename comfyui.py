@@ -84,6 +84,8 @@ class ComfyUI:
             method = getattr(module, method_name, None)
             if callable(method):
                 method(*args, **kwargs)
+                return True
+        return False
 
     def handle_weights(self, workflow, weights_to_download=None):
         if weights_to_download is None:
@@ -101,7 +103,9 @@ class ComfyUI:
             if node.get("class_type") in ["HFHubLoraLoader", "LoraLoaderFromURL"]:
                 continue
 
-            self.apply_helper_methods("add_weights", weights_to_download, Node(node))
+            #self.apply_helper_methods("add_weights", weights_to_download, Node(node))
+            if(self.apply_helper_methods("add_weights", weights_to_download, Node(node))):
+                continue
 
             for input_key, input_value in node["inputs"].items():
                 if isinstance(input_value, str):
