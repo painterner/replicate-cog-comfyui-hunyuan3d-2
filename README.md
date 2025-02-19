@@ -1,3 +1,13 @@
+# hunyuan3d-2 comfyui
+generate from [fofr/any-](https://github.com/fofr/cog-comfyui)
+replicate:
+  [https://replicate.com/fofr/any-comfyui-workflow](https://replicate.com/painterner/hunyuan-3d-2-comfyui)
+or try in my site:
+  https://comfyapi.jellyvai.com
+
+example workflow:
+   exmaple_workflow_api.json
+
 # cog-comfyui
 
 Run ComfyUI workflows on Replicate:
