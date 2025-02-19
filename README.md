@@ -1,9 +1,9 @@
 # hunyuan3d-2 comfyui for replicate model
-generate from [fofr/any-](https://github.com/fofr/cog-comfyui)
+generate from [fofr/cog-comfyui](https://github.com/fofr/cog-comfyui)
 replicate:
   [https://replicate.com/fofr/any-comfyui-workflow](https://replicate.com/painterner/hunyuan-3d-2-comfyui)
 or try in my site:
-  https://comfyapi.jellyvai.com
+  https://comfyapi.jellyvai.com/start?template=workflow-hunyuan3d-2-T2Model
 
 example workflow:
    exmaple_workflow_api.json
