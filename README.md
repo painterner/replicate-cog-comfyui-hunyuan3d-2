@@ -1,4 +1,4 @@
-# hunyuan3d-2 comfyui
+# hunyuan3d-2 comfyui for replicate model
 generate from [fofr/any-](https://github.com/fofr/cog-comfyui)
 replicate:
   [https://replicate.com/fofr/any-comfyui-workflow](https://replicate.com/painterner/hunyuan-3d-2-comfyui)
